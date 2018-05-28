@@ -1,0 +1,10 @@
+path \wrk-v1.2\tools\x86;%path% 
+cd \wrk-v1.2\base\ntos 
+
+nmake -nologo x86=
+
+link -dump -all \WINDOWS\system32\hal.dll | findstr pdb
+
+/kernel=wrkx86.exe /hal=halmacpi.dll
+
+/kernel=wrkx86.exe /hal=halmacpi.dll /debug /debugport=com1 /baudrate=115200 
